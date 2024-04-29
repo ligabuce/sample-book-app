@@ -9,7 +9,9 @@ pipeline {
         }
         stage('deploy-dev') {
             steps {
-                echo "Deployment triggered to DEV environemnt.. "
+                script{
+                    deploy("DEV")
+                }
             }
         }
         stage('api-test-dev') {
@@ -19,7 +21,9 @@ pipeline {
         }
         stage('deploy-stg') {
             steps {
-                echo "Deployment triggered to STG environemnt.. "
+                script{
+                    deploy("STG")
+                }
             }
         }
         stage('api-test-stg') {
@@ -29,7 +33,9 @@ pipeline {
         }
         stage('deploy-prd') {
             steps {
-                echo "Deployment triggered to PRD environemnt.. "
+                script{
+                    deploy("PRD")
+                }
             }
         }
         stage('api-test-prd') {
@@ -40,7 +46,9 @@ pipeline {
     }
 }
 
-
+def deploy(String enviroment){
+    echo "Deployment triggered to ${enviroment} environemnt.. "
+}
 
 // Build of application;
 //  deployment in “DEV” env;
