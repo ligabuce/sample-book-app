@@ -37,15 +37,10 @@ pipeline {
                 echo "API Tests triggered against PRD environemnt.. "
             }
         }
-        stage('making changes for Github') {
-            steps {
-                echo "made changes.. "
-            }
-        }
     }
 }
 
-//Add changes to try pushing
+
 
 // Build of application;
 //  deployment in “DEV” env;
